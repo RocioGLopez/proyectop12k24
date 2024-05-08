@@ -1,3 +1,4 @@
+//Meilyn García 9959-23-17838
 Algoritmo Calificacion
 	Definir nota1, nota2, notaA, nota3, suma, suma_total Como Entero;
 	Escribir 'Ingrese la nota 1 (no mayor de 20):';
