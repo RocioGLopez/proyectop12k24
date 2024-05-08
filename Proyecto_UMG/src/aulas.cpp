@@ -1,21 +1,21 @@
 //Creado por Rocio Guisell Lopez espinoza 9959-23-740
-#include "aulas.h"
+#include "aulas.h"// Incluye el archivo de encabezado para las definiciones de la clase AulasCRUD.
 
-#include <fstream>
-#include <iostream>
-#include<stdlib.h>
-#include<cstdlib>
-#include<conio.h>
-#include<iomanip>
-using namespace std;
-
+#include <fstream>// Incluye las funciones para trabajar con archivos.
+#include <iostream>// Incluye las funciones de entrada y salida estándar.
+#include<stdlib.h>// Incluye funciones para el manejo de memoria dinámica, control de procesos y conversiones de cadena.
+#include<cstdlib>// Incluye funciones para el control de procesos y conversiones de cadena.
+#include<conio.h>// Incluye funciones para el manejo de la consola.
+#include<iomanip>// Incluye funciones para formatear la salida.
+using namespace std;// Se utiliza el espacio de nombres estandar.
+//Definicion de la funcioón que realiza las operaciones CRUD
 void AulasCRUD::CrudAula()
 {
     int opcion;
     do
     {
 
-	system("cls");
+	system("cls");//limpia pantalla
 	cout<<"\t\t\t--------------------------------------------"<<endl;
 	cout<<"\t\t\t|     SISTEMA DE GESTION UMG - Aulas       |"<<endl;
 	cout<<"\t\t\t--------------------------------------------"<<endl;
@@ -54,16 +54,16 @@ void AulasCRUD::CrudAula()
     }while(opcion!= 5);
 
 }
-
+//funcion para ingresar una nueva aula
 void AulasCRUD::IngresarAula() {
 
-   system("cls");
+   system("cls"); //limpia pantalla
     cout<<"\n------------------------------------------------------------------------------------------------------------------------"<<endl;
     cout<<"\n-------------------------------------------------Agregar Aula--------------------------------------------"<<endl;
     aulas aula;
     cout << "Ingrese el codigo del aula: ";
     cin >> aula.codigo;
-    cin.ignore();
+    cin.ignore();//ignora el caracter de nueva linea en el buffer de entrada.
 
     cout << "Ingrese el nombre del aula: ";
     cin.getline(aula.nombre, 50);
@@ -71,19 +71,20 @@ void AulasCRUD::IngresarAula() {
     cout << "Ingrese la estatus de la aula: ";
     cin.getline(aula.estatus, 50);
 
-    ofstream archivo("aulas.dat", ios::binary | ios::app);
-    archivo.write(reinterpret_cast<const char*>(&aula), sizeof(aulas));
-    archivo.close();
+    ofstream archivo("aulas.dat", ios::binary | ios::app);//Abre el archivo en modo de escritura binaria, con la opción de agregar al final.
+    archivo.write(reinterpret_cast<const char*>(&aula), sizeof(aulas));// Escribe la estructura aula en el archivo.
+    archivo.close();// Cierra el archivo.
+
 
     cout << "aula agregada exitosamente!" << endl;
 }
-
+//funcion para modificar una aula existente.
 void AulasCRUD::ModificarAula() {
     int codigo;
     cout << "Ingrese el codigo de la aula a modificar: ";
     cin >> codigo;
 
-    fstream archivo("aulas.dat", ios::binary | ios::in | ios::out);
+    fstream archivo("aulas.dat", ios::binary | ios::in | ios::out);//abre el archivo en modo
     if (!archivo) {
         cout << "No hay aulas registradas." << endl;
         return;
@@ -100,8 +101,9 @@ void AulasCRUD::ModificarAula() {
             cout << "Ingrese el nuevo estatus de la aula: ";
             cin.getline(aula.estatus, 50);
 
-            archivo.seekp(-static_cast<int>(sizeof(aulas)), ios::cur);
-            archivo.write(reinterpret_cast<const char*>(&aula), sizeof(aulas));
+            archivo.seekp(-static_cast<int>(sizeof(aulas)), ios::cur);// Mueve el puntero de escritura a la posición anterior.
+            archivo.write(reinterpret_cast<const char*>(&aula), sizeof(aulas));// Escribe la estructura aula modificada en el archivo.
+
 
             encontrada = true;
             break;
@@ -117,24 +119,24 @@ void AulasCRUD::ModificarAula() {
     }
 
 }
-
+//funcion para eliminar una aula.
 void AulasCRUD::BorrarAula() {
     int codigo;
     cout << "Ingrese el codigo de la aula a eliminar: ";
     cin >> codigo;
 
-    ifstream archivo("aulas.dat", ios::binary);
+    ifstream archivo("aulas.dat", ios::binary);// Abre el archivo en modo lectura binaria.
     if (!archivo) {
         cout << "No hay aulas registradas." << endl;
 
     }
 
-    ofstream archivoTmp("aulas_tmp.dat", ios::binary);
+    ofstream archivoTmp("aulas_tmp.dat", ios::binary);// abre un archivo temporal en modo escritura binaria
     aulas aula;
     bool eliminada = false;
     while (archivo.read(reinterpret_cast<char*>(&aula), sizeof(aulas))) {
         if (aula.codigo != codigo) {
-            archivoTmp.write(reinterpret_cast<const char*>(&aula), sizeof(aulas));
+            archivoTmp.write(reinterpret_cast<const char*>(&aula), sizeof(aulas));// Escribe la aula en el archivo temporal si no coincide con el código proporcionado.
         } else {
             eliminada = true;
         }
@@ -143,8 +145,8 @@ void AulasCRUD::BorrarAula() {
     archivo.close();
     archivoTmp.close();
 
-    remove("aulas.dat");
-    rename("aulas_tmp.dat", "aulas.dat");
+    remove("aulas.dat");//elimina el archivo original
+    rename("aulas_tmp.dat", "aulas.dat");//renombra el archivo remporal al original.
 
     if (eliminada) {
         cout << "aula eliminada exitosamente!" << endl;
@@ -154,9 +156,9 @@ void AulasCRUD::BorrarAula() {
     }
 
 }
-
+//funcion para mostrar todas las aulas registradas.
 void AulasCRUD::DesplegarAula() {
-    system("cls");
+    system("cls");// limpia la pantalla
     cout<<"-----------------Despliegue de aulas registradas---------------------"<<endl;
     ifstream archivo("aulas.dat", ios::binary);
     if (!archivo) {
