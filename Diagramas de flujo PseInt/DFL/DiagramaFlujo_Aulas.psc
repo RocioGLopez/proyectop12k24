@@ -7,12 +7,12 @@ Algoritmo CRUD_aula
     Repetir
         // Menú principal
         Escribir "**************************"
-        Escribir "*  Menu secciones aulas  *"
+        Escribir "*       Menu Aulas       *"
         Escribir "**************************"
-        Escribir "1) Ingresar seccion "
-        Escribir "2) Modificar seccion "
-        Escribir "3) Borrar seccion"
-        Escribir "4) Desplegar seccion"
+        Escribir "1) Ingresar Aula "
+        Escribir "2) Modificar Aula "
+        Escribir "3) Borrar Aula"
+        Escribir "4) Desplegar Aula "
         Escribir "5) Salir"
         Escribir "**************************"
         Escribir "* Seleccione [1/2/3/4/5] *"
@@ -22,39 +22,39 @@ Algoritmo CRUD_aula
         Segun opcion hacer
 				// Agregar sección
             Caso 1:
-                Escribir "********** Agregar Seccion **********"
-                Escribir "Ingrese el codigo de la seccion: "
+                Escribir "********** Agregar Aula **********"
+                Escribir "Ingrese el codigo de la Aula: "
                 Leer codigo
-                Escribir "Ingrese el nombre de la seccion: "
+                Escribir "Ingrese el nombre de la Aula: "
                 Leer nombre
-                Escribir "Ingrese el estatus de la seccion: "
+                Escribir "Ingrese el estatus de la Aula: "
                 Leer estatus
-                Escribir "Seccion guardada exitosamente..."
+                Escribir "Aula guardada exitosamente..."
                 
 				// Modificar sección
             Caso 2:
-                Escribir "********** Modificar Seccion **********"
-                Escribir "Ingrese el codigo de la seccion a modificar: "
+                Escribir "********** Modificar Aula **********"
+                Escribir "Ingrese el codigo de la Aula a modificar: "
                 Leer codigo
-                Escribir "Ingrese el nuevo nombre de la seccion: "
+                Escribir "Ingrese el nuevo nombre de la Aula: "
                 Leer nombre
-                Escribir "Ingrese el nuevo estatus de la seccion: "
+                Escribir "Ingrese el nuevo estatus de la Aula: "
                 Leer estatus
-                Escribir "Seccion modificada correctamente..."
+                Escribir "Aula modificada correctamente..."
                 
 				// Borrar sección
             Caso 3:
-                Escribir "********** Borrar Seccion **********"
-                Escribir "Ingrese el codigo de la seccion a borrar: "
+                Escribir "********** Borrar Aula **********"
+                Escribir "Ingrese el codigo de la Aula a borrar: "
                 Leer codigo
-                Escribir "Seccion borrada correctamente..."
+                Escribir "Aula borrada correctamente..."
                 
 				// Desplegar secciones
             Caso 4:
-                Escribir "********** Desplegar Secciones **********"
-                Escribir "Codigo de la seccion: ", codigo
-                Escribir "Nombre de la seccion: ", nombre
-                Escribir "Estatus de la seccion: ", estatus
+                Escribir "********** Desplegar Aula **********"
+                Escribir "Codigo de la Aula: ", codigo
+                Escribir "Nombre de la Aula: ", nombre
+                Escribir "Estatus de la Aula: ", estatus
                 Escribir "----------------------------------------"
                 
 				// Salir
