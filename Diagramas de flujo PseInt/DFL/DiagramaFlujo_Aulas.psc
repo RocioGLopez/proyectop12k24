@@ -1,11 +1,11 @@
-//Hecho por Gabriela Pinto García / 9959-23-1087
+//Hecho por Gabriela Pinto GarcÃ­a / 9959-23-1087
 
 Algoritmo CRUD_aula
     Definir opcion Como entero
 	
     // Bucle principal
     Repetir
-        // Menú principal
+        // MenÃº principal
         Escribir "**************************"
         Escribir "*       Menu Aulas       *"
         Escribir "**************************"
@@ -20,7 +20,7 @@ Algoritmo CRUD_aula
         Leer opcion
         
         Segun opcion hacer
-				// Agregar sección
+				// Agregar Aula
             Caso 1:
                 Escribir "********** Agregar Aula **********"
                 Escribir "Ingrese el codigo de la Aula: "
@@ -31,7 +31,7 @@ Algoritmo CRUD_aula
                 Leer estatus
                 Escribir "Aula guardada exitosamente..."
                 
-				// Modificar sección
+				// Modificar Aula
             Caso 2:
                 Escribir "********** Modificar Aula **********"
                 Escribir "Ingrese el codigo de la Aula a modificar: "
@@ -42,14 +42,14 @@ Algoritmo CRUD_aula
                 Leer estatus
                 Escribir "Aula modificada correctamente..."
                 
-				// Borrar sección
+				// Borrar Aula
             Caso 3:
                 Escribir "********** Borrar Aula **********"
                 Escribir "Ingrese el codigo de la Aula a borrar: "
                 Leer codigo
                 Escribir "Aula borrada correctamente..."
                 
-				// Desplegar secciones
+				// Desplegar Aula
             Caso 4:
                 Escribir "********** Desplegar Aula **********"
                 Escribir "Codigo de la Aula: ", codigo
@@ -60,7 +60,7 @@ Algoritmo CRUD_aula
 				// Salir
             Caso 5:
                 Escribir "********** Salir **********"
-                Escribir "Gracias por usar el sistema. ¡Hasta luego!"
+                Escribir "Gracias por usar el sistema. Â¡Hasta luego!"
                 
             De Otro Modo:
                 Escribir "Opcion invalida. Por favor, ingrese una opcion [1/2/3/4/5]"
